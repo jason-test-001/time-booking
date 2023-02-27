@@ -10,6 +10,7 @@ import java.util.Optional;
  * Service Interface for managing {@link TimeBooking}.
  */
 public interface TimeBookingService {
+
     /**
      * query personnal member working time
      *
@@ -17,4 +18,11 @@ public interface TimeBookingService {
      * @return
      */
     List<WorkingTimeVo> queryWorkingTime(String personalMember);
+
+    /**
+     * set time to inform worker
+     */
+    void informWorker();
+
+
 }

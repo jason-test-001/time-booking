@@ -29,4 +29,17 @@ public interface TimeBookingRepository extends JpaRepository<TimeBooking, Long> 
             "where personal_number = :personalMember aa\n" +
             "group by aa.bookingDate")
     List<WorkingTimeVo> queryWorkingTime(String personalMember);
+
+
+    /**
+     *
+     *
+     * @param personalMember
+     * @return
+     */
+    @Query("select *\n" +
+            "from emplyee_book_time\n" +
+            "where person_number = :personalMember\n" +
+            "and cast(booking AS date) = :currentDate")
+    List<TimeBooking> queryWorkingTime(String personalMember,String currentDate);
 }
